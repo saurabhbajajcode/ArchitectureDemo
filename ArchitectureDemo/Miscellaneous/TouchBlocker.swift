@@ -33,7 +33,7 @@ class TouchBlocker: UIView {
         let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.tintColor = .white
+        activityIndicator.color = .white
         self.activityIndicator = activityIndicator
         blackView.addSubview(activityIndicator)
 
