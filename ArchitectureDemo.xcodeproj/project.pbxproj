@@ -19,6 +19,8 @@
 		09AC8E2425D86C1000050EEC /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC8E2325D86C1000050EEC /* UserListViewModel.swift */; };
 		09AC8E2725D86C7B00050EEC /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC8E2625D86C7B00050EEC /* APIHandler.swift */; };
 		09D80D5325D86F2000AC99DD /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D80D5225D86F2000AC99DD /* UtilityFunctions.swift */; };
+		09D80D5A25D93BB100AC99DD /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D80D5925D93BB100AC99DD /* UserListTableViewCell.swift */; };
+		09D80D6025D944DF00AC99DD /* UserListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D80D5F25D944DF00AC99DD /* UserListDataSource.swift */; };
 		31CE86239F23BEECB911D1AF /* Pods_ArchitectureDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CCC9AE25665E1183B2CBBFA /* Pods_ArchitectureDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		09AC8E2325D86C1000050EEC /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		09AC8E2625D86C7B00050EEC /* APIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		09D80D5225D86F2000AC99DD /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
+		09D80D5925D93BB100AC99DD /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
+		09D80D5F25D944DF00AC99DD /* UserListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDataSource.swift; sourceTree = "<group>"; };
 		3CCC9AE25665E1183B2CBBFA /* Pods_ArchitectureDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArchitectureDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7946FDE47E8EEC27F86372 /* Pods-ArchitectureDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArchitectureDemo.debug.xcconfig"; path = "Target Support Files/Pods-ArchitectureDemo/Pods-ArchitectureDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		65A75FD7B70AE59D9FB6ACAF /* Pods-ArchitectureDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArchitectureDemo.release.xcconfig"; path = "Target Support Files/Pods-ArchitectureDemo/Pods-ArchitectureDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				09AC8E0E25D7FFD600050EEC /* Info.plist */,
 				09AC8E2025D86BD000050EEC /* User.swift */,
 				09AC8E2325D86C1000050EEC /* UserListViewModel.swift */,
+				09D80D5925D93BB100AC99DD /* UserListTableViewCell.swift */,
+				09D80D5F25D944DF00AC99DD /* UserListDataSource.swift */,
 			);
 			path = ArchitectureDemo;
 			sourceTree = "<group>";
@@ -231,9 +237,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09D80D5A25D93BB100AC99DD /* UserListTableViewCell.swift in Sources */,
 				09D80D5325D86F2000AC99DD /* UtilityFunctions.swift in Sources */,
 				09AC8E0525D7FFCE00050EEC /* ViewController.swift in Sources */,
 				09AC8E0125D7FFCE00050EEC /* AppDelegate.swift in Sources */,
+				09D80D6025D944DF00AC99DD /* UserListDataSource.swift in Sources */,
 				09AC8E2425D86C1000050EEC /* UserListViewModel.swift in Sources */,
 				09AC8E2725D86C7B00050EEC /* APIHandler.swift in Sources */,
 				09AC8E2125D86BD100050EEC /* User.swift in Sources */,

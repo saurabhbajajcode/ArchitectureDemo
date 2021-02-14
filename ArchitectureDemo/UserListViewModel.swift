@@ -7,25 +7,36 @@
 
 import Foundation
 
-class UserListViewModel: NSObject {
-
-    private(set) var users: [User]?
+protocol UserListViewModelDelegate {
+    func didUpdateModel()
 }
 
-func getUsersList() {
-    let urlString = "https://jsonplaceholder.typicode.com/users"
-    APIHandler.request(urlString: urlString, method: .get, params: nil) { (statusCode, response) in
-        switch statusCode {
-        case 200...299:
-            if let data = response as? Data {
-                let users = try? JSONDecoder().decode([User].self, from: data)
-                print(users!)
+class UserListViewModel: NSObject {
+
+    private(set) var users: [User]! {
+        didSet {
+            // inform controller
+            delegate?.didUpdateModel()
+        }
+    }
+
+    var delegate: UserListViewModelDelegate?
+
+    func getUsersList() {
+        let urlString = "https://jsonplaceholder.typicode.com/users"
+        APIHandler.request(urlString: urlString, method: .get, params: nil) { (statusCode, response) in
+            switch statusCode {
+            case 200...299:
+                if let data = response as? Data {
+                    let users = try? JSONDecoder().decode([User].self, from: data)
+                    self.users = users
+                }
+
+            default:
+                // can perform some action, if needed.
+                break
             }
 
-        default:
-            // can perform some action, if needed.
-            break
         }
-
     }
 }
