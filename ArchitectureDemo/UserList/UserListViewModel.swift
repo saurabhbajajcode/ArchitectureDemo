@@ -25,6 +25,8 @@ class UserListViewModel: NSObject {
     // This will contain info about the user selected by the user.
     var selectedUser: User?
 
+    var selectedIndex: Int?
+
     func getUsersList() {
         let urlString = "https://jsonplaceholder.typicode.com/users"
         APIHandler.request(urlString: urlString, method: .get, params: nil) { (statusCode, response) in
@@ -43,7 +45,25 @@ class UserListViewModel: NSObject {
         }
     }
 
-    func detailsViewModel(for user: User) -> UserDetailsViewModel {
-        return UserDetailsViewModel(user: user)
+    /// Returns user details in presentable form for the user passed in parameter.
+    func userDetailsPresentable(user: User) -> [String: Any] {
+        var dict = [String: Any]()
+        dict["name"] = user.name.capitalized
+        dict["username"] = user.username
+        dict["address"] = "\(user.address.street.capitalized), \(user.address.suite.capitalized), \(user.address.city.capitalized), \(user.address.zipcode)"
+        dict["company"] = user.company.name.capitalized
+        dict["phone"] = user.phone
+        dict["website"] = user.website
+        let isFav = user.isFav ?? false
+        var imageName = "star"
+        if isFav {
+            imageName = "star.fill"
+        }
+        dict["favButtonImage"] = imageName
+        return dict
+    }
+
+    func udpateUser(user: User, index: Int) {
+        users[index] = user
     }
 }

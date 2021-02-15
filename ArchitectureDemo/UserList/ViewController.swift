@@ -33,6 +33,7 @@ class ViewController: UIViewController {
         if segue.identifier == "showUserDetailsSegue" {
             let destinationController = segue.destination as! UserDetailsViewController
             destinationController.user = viewModel.selectedUser
+            destinationController.delegate = self
         }
     }
 }
@@ -46,7 +47,8 @@ extension ViewController: UserListViewModelDelegate {
 
     func updateDataSource() {
         self.dataSource = UserListDataSource(cellIdentifier: "userListCell", items: self.viewModel.users, configureCell: { (cell, user) in
-            cell.setDataSource(dataSource: user)
+            let dataSource = self.viewModel.userDetailsPresentable(user: user)
+            cell.setDataSource(dataSource: dataSource)
         })
 
         DispatchQueue.main.async {
@@ -63,6 +65,16 @@ extension ViewController: UITableViewDelegate {
         // navigate to user details view
         let user = viewModel.users[indexPath.row]
         viewModel.selectedUser = user
+        viewModel.selectedIndex = indexPath.row
         navigateToUserDetails(user: user)
+    }
+}
+
+
+extension ViewController: UserDetailsDelegate {
+    func didUpdateUserDetails(user: User) {
+        if let index = viewModel.selectedIndex {
+            self.viewModel.udpateUser(user: user, index: index)
+        }
     }
 }

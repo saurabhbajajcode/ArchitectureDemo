@@ -26,10 +26,26 @@ class UserListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setDataSource(dataSource: User) {
-        nameLabel.text = dataSource.name
-        companyNameLabel.text = dataSource.company.name
-        phoneLabel.text = dataSource.phone
-        websiteLabel.text = dataSource.website
+    func setDataSource(dataSource: [String: Any]) {
+        if let name = dataSource["name"] as? String {
+            nameLabel.text = name
+        }
+
+        if let company = dataSource["company"] as? String {
+            companyNameLabel.text = company
+        }
+
+        if let phone = dataSource["phone"] as? String {
+            phoneLabel.text = phone
+        }
+
+        if let website = dataSource["website"] as? String {
+            websiteLabel.text = website
+        }
+
+        if let imageName = dataSource["favButtonImage"] as? String {
+            let image = UIImage(systemName: imageName)
+            favButton.setImage(image, for: .normal)
+        }
     }
 }

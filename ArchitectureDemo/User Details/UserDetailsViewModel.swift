@@ -13,7 +13,7 @@ protocol UserDetailsViewModelDelegate {
 
 class UserDetailsViewModel: NSObject {
 
-    private var user: User! {
+    private(set) var user: User! {
         didSet {
             // inform controller
             delegate?.didUpdateModel()

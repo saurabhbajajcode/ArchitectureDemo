@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol UserDetailsDelegate: class {
+    func didUpdateUserDetails(user: User)
+}
+
 class UserDetailsViewController: UIViewController {
 
     /// Holds information of the user whose details have to be displayed
@@ -15,6 +19,8 @@ class UserDetailsViewController: UIViewController {
     @IBOutlet var userDetailsView: UserDetailsView!
 
     private var viewModel: UserDetailsViewModel!
+
+    weak var delegate: UserDetailsDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,5 +49,6 @@ extension UserDetailsViewController: UserDetailsViewDelegate {
     func favButtonTapped() {
         // update view model
         self.viewModel.toggleFavourite()
+        self.delegate?.didUpdateUserDetails(user: viewModel.user)
     }
 }
