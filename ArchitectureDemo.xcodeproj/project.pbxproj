@@ -21,6 +21,9 @@
 		09D80D5325D86F2000AC99DD /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D80D5225D86F2000AC99DD /* UtilityFunctions.swift */; };
 		09D80D5A25D93BB100AC99DD /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D80D5925D93BB100AC99DD /* UserListTableViewCell.swift */; };
 		09D80D6025D944DF00AC99DD /* UserListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D80D5F25D944DF00AC99DD /* UserListDataSource.swift */; };
+		09D80D6425D9A2B100AC99DD /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D80D6325D9A2B100AC99DD /* UserDetailsViewModel.swift */; };
+		09D80D6825D9A31D00AC99DD /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D80D6725D9A31D00AC99DD /* UserDetailsViewController.swift */; };
+		09D80D6B25D9A8CF00AC99DD /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D80D6A25D9A8CF00AC99DD /* UserDetailsView.swift */; };
 		31CE86239F23BEECB911D1AF /* Pods_ArchitectureDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CCC9AE25665E1183B2CBBFA /* Pods_ArchitectureDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,9 @@
 		09D80D5225D86F2000AC99DD /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		09D80D5925D93BB100AC99DD /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
 		09D80D5F25D944DF00AC99DD /* UserListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDataSource.swift; sourceTree = "<group>"; };
+		09D80D6325D9A2B100AC99DD /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
+		09D80D6725D9A31D00AC99DD /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		09D80D6A25D9A8CF00AC99DD /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		3CCC9AE25665E1183B2CBBFA /* Pods_ArchitectureDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArchitectureDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7946FDE47E8EEC27F86372 /* Pods-ArchitectureDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArchitectureDemo.debug.xcconfig"; path = "Target Support Files/Pods-ArchitectureDemo/Pods-ArchitectureDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		65A75FD7B70AE59D9FB6ACAF /* Pods-ArchitectureDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArchitectureDemo.release.xcconfig"; path = "Target Support Files/Pods-ArchitectureDemo/Pods-ArchitectureDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +64,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0956AA1C25DB0C2800D83136 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				09AC8E0425D7FFCE00050EEC /* ViewController.swift */,
+				09AC8E2325D86C1000050EEC /* UserListViewModel.swift */,
+				09D80D5925D93BB100AC99DD /* UserListTableViewCell.swift */,
+				09D80D5F25D944DF00AC99DD /* UserListDataSource.swift */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
 		09AC8DF425D7FFCE00050EEC = {
 			isa = PBXGroup;
 			children = (
@@ -79,17 +96,15 @@
 		09AC8DFF25D7FFCE00050EEC /* ArchitectureDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0956AA1C25DB0C2800D83136 /* UserList */,
+				09D80D6225D9A29B00AC99DD /* User Details */,
 				09AC8E1625D8045800050EEC /* Miscellaneous */,
 				09AC8E0025D7FFCE00050EEC /* AppDelegate.swift */,
-				09AC8E0425D7FFCE00050EEC /* ViewController.swift */,
 				09AC8E0625D7FFCE00050EEC /* Main.storyboard */,
 				09AC8E0925D7FFD600050EEC /* Assets.xcassets */,
 				09AC8E0B25D7FFD600050EEC /* LaunchScreen.storyboard */,
 				09AC8E0E25D7FFD600050EEC /* Info.plist */,
 				09AC8E2025D86BD000050EEC /* User.swift */,
-				09AC8E2325D86C1000050EEC /* UserListViewModel.swift */,
-				09D80D5925D93BB100AC99DD /* UserListTableViewCell.swift */,
-				09D80D5F25D944DF00AC99DD /* UserListDataSource.swift */,
 			);
 			path = ArchitectureDemo;
 			sourceTree = "<group>";
@@ -104,6 +119,16 @@
 				09D80D5225D86F2000AC99DD /* UtilityFunctions.swift */,
 			);
 			path = Miscellaneous;
+			sourceTree = "<group>";
+		};
+		09D80D6225D9A29B00AC99DD /* User Details */ = {
+			isa = PBXGroup;
+			children = (
+				09D80D6325D9A2B100AC99DD /* UserDetailsViewModel.swift */,
+				09D80D6725D9A31D00AC99DD /* UserDetailsViewController.swift */,
+				09D80D6A25D9A8CF00AC99DD /* UserDetailsView.swift */,
+			);
+			path = "User Details";
 			sourceTree = "<group>";
 		};
 		D3BC85B99D8E83EDB07148EB /* Pods */ = {
@@ -237,13 +262,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09D80D6B25D9A8CF00AC99DD /* UserDetailsView.swift in Sources */,
 				09D80D5A25D93BB100AC99DD /* UserListTableViewCell.swift in Sources */,
 				09D80D5325D86F2000AC99DD /* UtilityFunctions.swift in Sources */,
+				09D80D6425D9A2B100AC99DD /* UserDetailsViewModel.swift in Sources */,
 				09AC8E0525D7FFCE00050EEC /* ViewController.swift in Sources */,
 				09AC8E0125D7FFCE00050EEC /* AppDelegate.swift in Sources */,
 				09D80D6025D944DF00AC99DD /* UserListDataSource.swift in Sources */,
 				09AC8E2425D86C1000050EEC /* UserListViewModel.swift in Sources */,
 				09AC8E2725D86C7B00050EEC /* APIHandler.swift in Sources */,
+				09D80D6825D9A31D00AC99DD /* UserDetailsViewController.swift in Sources */,
 				09AC8E2125D86BD100050EEC /* User.swift in Sources */,
 				09AC8E1C25D804EF00050EEC /* TouchBlocker.swift in Sources */,
 				09AC8E1A25D804EE00050EEC /* AppManager.swift in Sources */,

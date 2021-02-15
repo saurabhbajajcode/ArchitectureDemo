@@ -3,7 +3,6 @@
 //  ArchitectureDemo
 //
 //  Created by Saurabh Bajaj on 13/02/21.
-//  Copyright © 2021 ArchitectureDemo. All rights reserved.
 //
 
 import Foundation

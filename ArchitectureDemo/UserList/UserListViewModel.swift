@@ -22,6 +22,9 @@ class UserListViewModel: NSObject {
 
     var delegate: UserListViewModelDelegate?
 
+    // This will contain info about the user selected by the user.
+    var selectedUser: User?
+
     func getUsersList() {
         let urlString = "https://jsonplaceholder.typicode.com/users"
         APIHandler.request(urlString: urlString, method: .get, params: nil) { (statusCode, response) in
@@ -38,5 +41,9 @@ class UserListViewModel: NSObject {
             }
 
         }
+    }
+
+    func detailsViewModel(for user: User) -> UserDetailsViewModel {
+        return UserDetailsViewModel(user: user)
     }
 }

@@ -19,10 +19,24 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
 
         tableView.dataSource = dataSource
+        tableView.delegate = self
         viewModel.delegate = self
         viewModel.getUsersList()
     }
+
+    // MARK: Helpers
+    fileprivate func navigateToUserDetails(user: User) {
+        performSegue(withIdentifier: "showUserDetailsSegue", sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showUserDetailsSegue" {
+            let destinationController = segue.destination as! UserDetailsViewController
+            destinationController.user = viewModel.selectedUser
+        }
+    }
 }
+
 
 extension ViewController: UserListViewModelDelegate {
     func didUpdateModel() {
@@ -39,5 +53,16 @@ extension ViewController: UserListViewModelDelegate {
             self.tableView.dataSource = self.dataSource
             self.tableView.reloadData()
         }
+    }
+}
+
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard viewModel.users.endIndex > indexPath.row else { return }
+        // navigate to user details view
+        let user = viewModel.users[indexPath.row]
+        viewModel.selectedUser = user
+        navigateToUserDetails(user: user)
     }
 }
