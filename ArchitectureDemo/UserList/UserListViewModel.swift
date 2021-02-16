@@ -66,4 +66,12 @@ class UserListViewModel: NSObject {
     func udpateUser(user: User, index: Int) {
         users[index] = user
     }
+
+    func toggleFavourite(index: Int) {
+        if users.count > index {
+            var user = users[index]
+            user.isFav = !(user.isFav ?? false)
+            users[index] = user
+        }
+    }
 }

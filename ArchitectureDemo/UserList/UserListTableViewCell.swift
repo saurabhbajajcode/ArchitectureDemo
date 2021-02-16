@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol UserListTableViewCellDelegate: class {
+    func favButtonTapped(tag: Int)
+}
+
 class UserListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
@@ -14,6 +18,12 @@ class UserListTableViewCell: UITableViewCell {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var websiteLabel: UILabel!
     @IBOutlet weak var favButton: UIButton!
+
+    weak var delegate: UserListTableViewCellDelegate?
+
+    @IBAction func favButtonTapped(sender: UIButton) {
+        delegate?.favButtonTapped(tag: self.tag)
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

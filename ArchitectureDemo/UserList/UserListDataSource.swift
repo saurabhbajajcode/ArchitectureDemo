@@ -31,6 +31,7 @@ class UserListDataSource<CELL : UITableViewCell,T> : NSObject, UITableViewDataSo
         }
         let item = self.items[indexPath.row]
         self.configureCell(cell, item)
+        cell.tag = indexPath.row
         return cell
     }
 }

@@ -49,6 +49,7 @@ extension ViewController: UserListViewModelDelegate {
         self.dataSource = UserListDataSource(cellIdentifier: "userListCell", items: self.viewModel.users, configureCell: { (cell, user) in
             let dataSource = self.viewModel.userDetailsPresentable(user: user)
             cell.setDataSource(dataSource: dataSource)
+            cell.delegate = self
         })
 
         DispatchQueue.main.async {
@@ -76,5 +77,12 @@ extension ViewController: UserDetailsDelegate {
         if let index = viewModel.selectedIndex {
             self.viewModel.udpateUser(user: user, index: index)
         }
+    }
+}
+
+
+extension ViewController: UserListTableViewCellDelegate {
+    func favButtonTapped(tag: Int) {
+        viewModel.toggleFavourite(index: tag)
     }
 }
